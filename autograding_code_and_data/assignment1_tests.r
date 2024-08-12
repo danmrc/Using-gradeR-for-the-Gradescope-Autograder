@@ -5,22 +5,44 @@ library(testthat)
 # you can have multiple tests for each question
 
 
-test_that("first (visible)", {
+test_that("First Regression (visible)", {
   
-  expect_equal( sum(myVector), 6) 
+  library(AER)
+  data("MASchools")
+  
+  reg1_test <- lm(score4 ~ stratio + lunch + income, data = MASchools)
+  expect_equal(reg1, reg1_test)
 
 })
 
-test_that("second (invisible)", {
-
-  expect_true(is.character(myString))
-  expect_true(nchar(myString) > 2)
-
+test_that("Robust SE I (visible)", {
+  
+  library(AER)
+  data("MASchools")
+  
+  reg1_test <- lm(score4 ~ stratio + lunch + income, data = MASchools)
+  hc_test1 <- vcovHC(reg1_test)
+  expect_equal(hc1, hc_test1)
+  
 })
 
-test_that("third", {
+test_that("Second Regression (visible)", {
+  
+  library(AER)
+  data("MASchools")
+  
+  reg2_test <- lm(score4 ~ stratio + lunch + income + special + exptot, data = MASchools)
+  expect_equal(reg2, reg2_test)
+  
+})
 
-  expect_equal(nrow(myDataFrame), 2)
-  expect_equal(myDataFrame[2,3], 700.01, tolerance=1e-3)
-
+test_that("Robust SE II (visible)", {
+  
+  library(AER)
+  data("MASchools")
+  
+  reg2_test <- lm(score4 ~ stratio + lunch + income + special + exptot, data = MASchools)
+  hc_test2 <- vcovHC(reg2_test)
+  expect_equal(hc2, hc_test2)
+  
 })

@@ -2,11 +2,11 @@
 # Aug. 8 2019
 # STAT 101
 
-# question 1
-myVector <- 1:3
+library(AER)
 
-# question 2
-myString <- "Jane Doe"
+data("MASchools")
 
-# question 3
-myDataFrame <- read.csv("data.csv")
+reg1 <- lm(score4 ~ stratio + lunch + income, data = MASchools)
+hc1 <- vcovHC(reg1)
+
+reg2 <- lm(score4 ~ stratio + lunch + income + special, data = MASchools)
