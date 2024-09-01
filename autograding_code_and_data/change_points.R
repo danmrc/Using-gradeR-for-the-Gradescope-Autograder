@@ -1,5 +1,4 @@
 library(jsonlite)
-library(purrr)
 
 new_max_score <- 3
 
