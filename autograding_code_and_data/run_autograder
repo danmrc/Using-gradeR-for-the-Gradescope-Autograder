@@ -8,3 +8,4 @@ cd /autograder/source
 
 
 LC_ALL= Rscript grade_one_submission.r 
+Rscript change_points.R
