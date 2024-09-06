@@ -2,7 +2,7 @@
 
 # Set up autograder files
 
-cp /autograder/submission/assignment1.R /autograder/source/assignment1.R
+cp /autograder/submission/*.R /autograder/source/assignment1.R
 
 cd /autograder/source
 
